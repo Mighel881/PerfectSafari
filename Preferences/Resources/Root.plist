@@ -34,7 +34,7 @@
 			<key>label</key>
 			<string>Settings</string>
 			<key>footerText</key>
-			<string>'ADD NEW TAB BUTTON', 'SHOW TABS' AND 'USE TAB OVERVIEW' OPTIONS ARE FOR IPHONE ONLY.</string>
+			<string>'ADD NEW TAB BUTTON' AND 'USE TAB OVERVIEW' OPTIONS ARE FOR IPHONE ONLY.</string>
         </dict>
 		<dict>
 			<key>cell</key>
@@ -80,9 +80,9 @@
 			<key>defaults</key>
 			<string>com.johnzaro.perfectsafariprefs</string>
 			<key>key</key>
-			<string>showTabs</string>
+			<string>alwaysShowTabs</string>
 			<key>label</key>
-			<string>Show Tabs</string>
+			<string>Always Show Tabs</string>
 		</dict>
 		<dict>
 			<key>cell</key>

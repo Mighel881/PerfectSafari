@@ -27,7 +27,7 @@
 		@"showOpenTabsCount": @NO,
 		@"colorize": @NO,
 		@"fullScreen": @NO,
-		@"showTabs": @NO,
+		@"alwaysShowTabs": @NO,
 		@"useTabOverview": @NO,
 		@"showFullURL": @NO,
 		@"backgroundPlayback": @NO
@@ -39,7 +39,7 @@
 	_showOpenTabsCount = [_preferences boolForKey: @"showOpenTabsCount"];
 	_colorize = [_preferences boolForKey: @"colorize"];
 	_fullScreen = [_preferences boolForKey: @"fullScreen"];
-	_showTabs = [_preferences boolForKey: @"showTabs"];
+	_alwaysShowTabs = [_preferences boolForKey: @"alwaysShowTabs"];
 	_useTabOverview = [_preferences boolForKey: @"useTabOverview"];
 	_showFullURL = [_preferences boolForKey: @"showFullURL"];
 	_backgroundPlayback = [_preferences boolForKey: @"backgroundPlayback"];
@@ -72,9 +72,9 @@
 	return _fullScreen;
 }
 
-- (BOOL)showTabs
+- (BOOL)alwaysShowTabs
 {
-	return _showTabs;
+	return _alwaysShowTabs;
 }
 
 - (BOOL)useTabOverview

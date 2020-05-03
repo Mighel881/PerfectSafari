@@ -9,7 +9,7 @@
     BOOL _showOpenTabsCount;
     BOOL _colorize;
     BOOL _fullScreen;
-    BOOL _showTabs;
+    BOOL _alwaysShowTabs;
     BOOL _useTabOverview;
     BOOL _showFullURL;
     BOOL _backgroundPlayback;
@@ -20,7 +20,7 @@
 - (BOOL)showOpenTabsCount;
 - (BOOL)colorize;
 - (BOOL)fullScreen;
-- (BOOL)showTabs;
+- (BOOL)alwaysShowTabs;
 - (BOOL)useTabOverview;
 - (BOOL)showFullURL;
 - (BOOL)backgroundPlayback;

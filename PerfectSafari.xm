@@ -68,6 +68,21 @@ static SafariPreferences *preferences;
 
  %end
 
+ // show bookmarks tab
+
+%group showBookmarksBarGroup
+
+	%hook BrowserController
+
+	- (BOOL)_shouldShowBookmarksBar
+	{
+		return YES;
+	}
+
+	%end
+
+ %end
+
 // Background Playback
 
 %group backgroundPlaybackGroup
@@ -97,6 +112,7 @@ void initPerfectSafari()
 		if([preferences fullScreen]) %init(fullScreenGroup);
 		if([preferences alwaysShowTabs]) %init(alwaysShowTabsGroup);
 		if([preferences useTabOverview] && ![preferences isIpad]) %init(useTabOverviewGroup);
+		if([preferences showBookmarksBar]) %init(showBookmarksBarGroup);
 		if([preferences backgroundPlayback]) %init(backgroundPlaybackGroup);
 	}
 }

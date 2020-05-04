@@ -13,6 +13,7 @@
     BOOL _useTabOverview;
     BOOL _showFullURL;
     BOOL _backgroundPlayback;
+    BOOL _showBookmarksBar;
 }
 + (instancetype)sharedInstance;
 - (BOOL)enabled;
@@ -24,5 +25,6 @@
 - (BOOL)useTabOverview;
 - (BOOL)showFullURL;
 - (BOOL)backgroundPlayback;
+- (BOOL)showBookmarksBar;
 - (BOOL)isIpad;
 @end

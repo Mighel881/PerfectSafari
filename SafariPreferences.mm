@@ -30,7 +30,8 @@
 		@"alwaysShowTabs": @NO,
 		@"useTabOverview": @NO,
 		@"showFullURL": @NO,
-		@"backgroundPlayback": @NO
+		@"backgroundPlayback": @NO,
+		@"showBookmarksBar": @NO
 	}];
 
 	_enabled = [_preferences boolForKey: @"enabled"];
@@ -43,6 +44,7 @@
 	_useTabOverview = [_preferences boolForKey: @"useTabOverview"];
 	_showFullURL = [_preferences boolForKey: @"showFullURL"];
 	_backgroundPlayback = [_preferences boolForKey: @"backgroundPlayback"];
+	_showBookmarksBar = [_preferences boolForKey: @"showBookmarksBar"];
 	
 	return self;
 }
@@ -90,6 +92,11 @@
 - (BOOL)backgroundPlayback
 {
 	return _backgroundPlayback;
+}
+
+- (BOOL)showBookmarksBar
+{
+	return _showBookmarksBar;
 }
 
 - (BOOL)isIpad

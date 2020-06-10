@@ -144,55 +144,60 @@ void configureBarButtonItem(UIBarButtonItem* item, NSString* accessibilityIdenti
 
 	- (instancetype)initWithBar: (_SFToolbar*)bar barManager: (id)barManager layout: (NSInteger)layout persona: (NSUInteger)persona
 	{
-		objc_super super;
-		super.receiver = self;
-		super.super_class = [self class];
+		if(persona == 0 && layout == 2)
+		{
+			objc_super super;
+			super.receiver = self;
+			super.super_class = [self class];
 
-		self = objc_msgSendSuper2(&super, @selector(init));
+			self = objc_msgSendSuper2(&super, @selector(init));
 
-		[self setValue: bar forKey: @"_bar"];
-		[self setValue: barManager forKey: @"_barManager"];
-		[self setValue: @(layout) forKey: @"_layout"];
+			[self setValue: bar forKey: @"_bar"];
+			[self setValue: barManager forKey: @"_barManager"];
+			[self setValue: @(layout) forKey: @"_layout"];
 
-		NSMutableArray* barButtonItems = [NSMutableArray new];
-		[barButtonItems addObject: @0];
-		[barButtonItems addObject: @1];
-		[barButtonItems addObject: @3];
-		[barButtonItems addObject: @2];
-		[barButtonItems addObject: @4];
-		[barButtonItems addObject: @5];
+			NSMutableArray* barButtonItems = [NSMutableArray new];
+			[barButtonItems addObject: @0];
+			[barButtonItems addObject: @1];
+			[barButtonItems addObject: @3];
+			[barButtonItems addObject: @2];
+			[barButtonItems addObject: @4];
+			[barButtonItems addObject: @5];
 
-		[self setValue: [NSOrderedSet orderedSetWithArray: [barButtonItems copy]] forKey: @"_arrangedBarItems"];
-		[self setValue: [[NSMutableSet alloc] init] forKey: @"_hiddenBarItems"];
+			[self setValue: [NSOrderedSet orderedSetWithArray: [barButtonItems copy]] forKey: @"_arrangedBarItems"];
+			[self setValue: [[NSMutableSet alloc] init] forKey: @"_hiddenBarItems"];
 
-		// 0: back 1: forward 2: bookmarks 3: share 4: add tab 5: tabs
+			// 0: back 1: forward 2: bookmarks 3: share 4: add tab 5: tabs
 
-		UIBarButtonItem* backItem = [self _newBarButtonItemForSFBarItem: 0];
-		configureBarButtonItem(backItem, @"BackButton", @"Back (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
-		[self setValue: backItem forKey: @"_backItem"];
+			UIBarButtonItem* backItem = [self _newBarButtonItemForSFBarItem: 0];
+			configureBarButtonItem(backItem, @"BackButton", @"Back (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
+			[self setValue: backItem forKey: @"_backItem"];
 
-		UIBarButtonItem* forwardItem = [self _newBarButtonItemForSFBarItem: 1];
-		configureBarButtonItem(forwardItem, @"ForwardButton", @"Forward (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
-		[self setValue: forwardItem forKey: @"_forwardItem"];
+			UIBarButtonItem* forwardItem = [self _newBarButtonItemForSFBarItem: 1];
+			configureBarButtonItem(forwardItem, @"ForwardButton", @"Forward (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
+			[self setValue: forwardItem forKey: @"_forwardItem"];
 
-		UIBarButtonItem* bookmarksItem = [self _newBarButtonItemForSFBarItem: 2];
-		configureBarButtonItem(bookmarksItem, @"BookmarksButton", @"Bookmarks (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
-		bookmarksItem._additionalSelectionInsets = UIEdgeInsetsMake(2, 0, 3, 0);
-		[self setValue: bookmarksItem forKey: @"_bookmarksItem"];
+			UIBarButtonItem* bookmarksItem = [self _newBarButtonItemForSFBarItem: 2];
+			configureBarButtonItem(bookmarksItem, @"BookmarksButton", @"Bookmarks (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
+			bookmarksItem._additionalSelectionInsets = UIEdgeInsetsMake(2, 0, 3, 0);
+			[self setValue: bookmarksItem forKey: @"_bookmarksItem"];
 
-		UIBarButtonItem* shareItem = [self _newBarButtonItemForSFBarItem: 3];
-		configureBarButtonItem(shareItem, @"ShareButton", @"Share (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), @selector(_itemReceivedTouchDown:));
-		[self setValue: shareItem forKey: @"_shareItem"];
+			UIBarButtonItem* shareItem = [self _newBarButtonItemForSFBarItem: 3];
+			configureBarButtonItem(shareItem, @"ShareButton", @"Share (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), @selector(_itemReceivedTouchDown:));
+			[self setValue: shareItem forKey: @"_shareItem"];
 
-		UIBarButtonItem* newTabItem = [self _newBarButtonItemForSFBarItem: 4];
-		configureBarButtonItem(newTabItem, @"NewTabButton", @"New Tab (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
-		[self setValue: newTabItem forKey: @"_newTabItem"];
+			UIBarButtonItem* newTabItem = [self _newBarButtonItemForSFBarItem: 4];
+			configureBarButtonItem(newTabItem, @"NewTabButton", @"New Tab (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
+			[self setValue: newTabItem forKey: @"_newTabItem"];
 
-		UIBarButtonItem* tabExposeItem = [self _newBarButtonItemForSFBarItem: 5];
-		configureBarButtonItem(tabExposeItem, @"TabsButton", @"Tabs (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
-		[self setValue: tabExposeItem forKey: @"_tabExposeItem"];
+			UIBarButtonItem* tabExposeItem = [self _newBarButtonItemForSFBarItem: 5];
+			configureBarButtonItem(tabExposeItem, @"TabsButton", @"Tabs (toolbar accessibility title)", self, @selector(_itemReceivedLongPress:), nil);
+			[self setValue: tabExposeItem forKey: @"_tabExposeItem"];
 
-		return self;
+			return self;
+		}
+		else
+			return %orig;
 	}
 
 	%end
